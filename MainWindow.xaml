@@ -1,0 +1,173 @@
+﻿<Window x:Class="StockroomBinar.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Icon="Image/LogoBinar.png" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True"
+        Title="Склад" Height="750" Width="1250" Background="Transparent" ContentRendered="Window_ContentRendered">
+    <Border CornerRadius="0" Background="#303841">
+        <!--<Border.Background>
+            <LinearGradientBrush StartPoint="0,2" EndPoint="1,1">
+                <GradientStop Color="#303841" Offset="0.6"/>
+                <GradientStop Color="#222831" Offset="3"/>
+            </LinearGradientBrush>
+        </Border.Background>-->
+        <Grid>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition Height="20"/>
+            </Grid.RowDefinitions>
+
+
+            <Label Content=" " FontSize="1"/>
+            <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="3" Background="#303841">
+                <Image Source="Image/LogoBinar.png" Margin="5"/>
+                <TextBlock Text="Склад" VerticalAlignment="Center" FontSize="40" FontFamily="Century Gothic" Foreground="White"/>
+            </StackPanel>
+
+            <Grid Grid.RowSpan="5" Grid.Row="0" Grid.ColumnSpan="3" HorizontalAlignment="Left"  Margin="0,100,0,0">
+                <!--<Grid.Style>
+                    <Style TargetType="{x:Type Grid}">
+                        <Style.Triggers>
+                            <EventTrigger RoutedEvent="MouseEnter">
+                                <EventTrigger.Actions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Duration="0:0:0.2" Storyboard.TargetProperty="Width" To="400"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger.Actions>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="MouseLeave">
+                                <EventTrigger.Actions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Duration="0:0:0.2" Storyboard.TargetProperty="Width" To="50"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger.Actions>
+                            </EventTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Grid.Style>-->
+                <Border Background="#303841" VerticalAlignment="Top" HorizontalAlignment="Left"  CornerRadius="0,10,0,0" Grid.Row="0" Grid.RowSpan="5">
+                    
+                    <!--<Border.Effect>
+                    <DropShadowEffect BlurRadius="20" Color="Black" ShadowDepth="0"></DropShadowEffect>
+                </Border.Effect>-->
+
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Grid.Row="0" Grid.RowSpan="3" Background="#303841" Height="750" Width="300">
+
+                        <Border Background="#222831"  CornerRadius="0,40,0,0" Grid.Row="0" Grid.RowSpan="15" Height="643" Width="300">
+                            <!--<Border.Effect>
+                                <DropShadowEffect BlurRadius="20" Color="Black" ShadowDepth="0"></DropShadowEffect>
+                            </Border.Effect>-->
+                            <Menu Background="#222831" Margin="0,10,19,0"  >
+                                <Menu.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <VirtualizingStackPanel Orientation="Vertical"/>
+                                    </ItemsPanelTemplate>
+                                </Menu.ItemsPanel>
+                                <MenuItem Header="Домой" FontSize="15" x:Name="Home" Click="Home_Click" Height="50" Foreground="White" FontFamily="Century Gothic" >
+                                    <MenuItem.Icon>
+                                        <Image Source="Image/home.png" Stretch="UniformToFill" Margin="-9" RenderTransformOrigin="0.275,0.206" />
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                                <MenuItem Header="Пластик" FontSize="15" Height="50" x:Name="Pastick" Foreground="White" Background="#222831" FontFamily="Century Gothic" Margin="0,0,-18,0" >
+                                    <MenuItem.Icon >
+                                        <Image Source="Image/plastik.png"  Stretch="UniformToFill" Margin="-9" RenderTransformOrigin="0.275,0.206"/>
+                                    </MenuItem.Icon>
+                                    <MenuItem Header="Пластик на скаладе" x:Name="PlasticOnStock" Click="PlasticOnStock_Click"></MenuItem>
+                                    <MenuItem Header="Пластик на переработку" x:Name="Recycling" Click="Recycling_Click"></MenuItem>
+                                    <MenuItem Header="Брак" x:Name="Defective" Click="Defective_Click"></MenuItem>
+                                </MenuItem>
+                                <MenuItem Header="Детали" FontSize="15" Height="50" Foreground="White" Background="#222831" FontFamily="Century Gothic" Margin="0,0,-18,0">
+                                    <MenuItem.Icon>
+                                        <Image Source="Image/seo-1.png" Stretch="UniformToFill" Margin="-9" RenderTransformOrigin="0.275,0.206" />
+                                    </MenuItem.Icon>
+
+                                    <MenuItem Header="Детали из пластика на складе" x:Name="PlasticDitals" Click="PlasticDitals_Click" ></MenuItem>
+                                    <MenuItem Header="Детали с производства на складе" x:Name="DitalsFromProduction" Click="DitalsFromProduction_Click" ></MenuItem>
+                                    <MenuItem Header="Гравировка" x:Name="Engraving" Click="Engraving_Click"></MenuItem>
+                                </MenuItem>
+                                <MenuItem Header="Для принтеров" FontSize="15" x:Name="Printers3D" Click="Printers3D_Click" Height="50" Foreground="White" FontFamily="Century Gothic" Margin="0,0,-19,0">
+                                    <MenuItem.Icon>
+                                        <Image Source="Image/3dprinterIco.png" Stretch="UniformToFill" Margin="-9" RenderTransformOrigin="0.275,0.206" />
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                                <MenuItem Header="Поставки" FontSize="15" Height="50" Foreground="White" FontFamily="Century Gothic" x:Name="Delivering" Click="Delivering_Click" Margin="0,0,-18,0">
+                                    <MenuItem.Icon>
+                                        <Image Source="Image/postavki.png" Stretch="UniformToFill" Margin="-9,-9,-9,-12"/>
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                                <MenuItem Header="Калькулятор" FontSize="15" Height="50" Foreground="White" FontFamily="Century Gothic" x:Name="Calculator" Click="Calculator_Click" Margin="0,0,-17,0">
+                                    <MenuItem.Icon>
+                                        <Image Source="Image/calculator.png"  Stretch="UniformToFill" Margin="-9,-9,-9,-12"/>
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                                <MenuItem Header="Профили" FontSize="15" Height="50" Foreground="White" Background="#222831" FontFamily="Century Gothic" Margin="0,0,-17,0">
+                                    <MenuItem.Icon>
+                                        <Image Source="Image/engravingPic.png"  Stretch="UniformToFill" Margin="-17"/>
+                                    </MenuItem.Icon>
+                                    <MenuItem Header="Профили для гравировки" x:Name="EngravingProfils" Click="EngravingProfils_Click"></MenuItem>
+                                    <MenuItem Header="Профили для 3D печати" x:Name="PrintProfils" Click="PrintProfils_Click"></MenuItem>
+                                </MenuItem>
+                                <!--<MenuItem Header="Чертежи" FontSize="15" Height="50" Foreground="White" Background="#222831" FontFamily="Century Gothic" Margin="0,0,-17,0">
+                                <MenuItem.Icon>
+                                    <Image Source="Image/Chart.png"  Stretch="UniformToFill" Margin="-8"/>
+                                </MenuItem.Icon>
+                                <MenuItem Header="Конструкторские чертежи" x:Name="KonstruktionsBlueprints" Click="KonstruktionsBlueprints_Click"></MenuItem>
+                                <MenuItem Header="Чертежи ЕСК" x:Name="ESKBlueprints" Click="ESKBlueprints_Click"></MenuItem>
+                            </MenuItem>-->
+                            </Menu>
+                        </Border>
+                        <!--<StackPanel Orientation="Horizontal">
+                        <Button x:Name="BinarSite" Click="BinarSite_Click" Margin="10,0" Height="36" Width="70" Background="Transparent" BorderThickness="0" HorizontalAlignment="Left">
+                            <Image Source="Image/LogoBinar.png" Height="32" Width="30" RenderTransformOrigin="0.117,0.407"/>
+                        </Button>
+                        <Button x:Name="CloudLick" Click="CloudLick_Click" Margin="10,0" Height="36" Width="70" Background="Transparent" BorderThickness="0">
+                            <Image Source="Image/CloudIco.png" Height="33" Width="30" RenderTransformOrigin="0.117,0.407"/>
+                        </Button>
+                       
+                    </StackPanel>-->
+
+                    </StackPanel>
+                </Border>
+            </Grid>
+            
+            
+
+           
+
+            <Frame Grid.Row="0" x:Name="MyFrame" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="4" Margin="15,36,0,0" />
+            <Frame x:Name="MyFrameNotifications" Grid.Column="3" Grid.Row="0"  Grid.RowSpan="2" Margin="0,38,0,0"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="3" Grid.ColumnSpan="2" VerticalAlignment="Top">
+                <Button x:Name="NotificationeWindow" Background="Transparent" HorizontalAlignment="Right" Grid.Column="3" Grid.ColumnSpan="2" VerticalAlignment="Top" Margin="10" Click="NotificationeWindow_Click" Style="{DynamicResource m}" Height="25" BorderThickness="0">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="Image/colocol.png"/>
+                        <TextBlock x:Name="CountNotitfication" FontSize="16" FontFamily="Century Gothic" Foreground="White" Margin="5,0" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                    
+                </Button>
+            <Button x:Name="CloseWindow" Background="Transparent" HorizontalAlignment="Right" Grid.Column="3" Grid.ColumnSpan="2" VerticalAlignment="Top" Margin="10" Click="CloseWindow_Click" Style="{DynamicResource m}" Height="25" BorderThickness="0">
+                <Image Source="Image/CloseIco.png"/>
+            </Button>
+            </StackPanel>
+            
+        </Grid>
+
+    </Border>
+
+</Window>

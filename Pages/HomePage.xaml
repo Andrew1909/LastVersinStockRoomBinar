@@ -1,0 +1,194 @@
+﻿<Page x:Class="StockroomBinar.Pages.HomePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:gif="http://wpfanimatedgif.codeplex.com"
+      xmlns:local="clr-namespace:StockroomBinar.Pages"
+      xmlns:Wpf="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+      mc:Ignorable="d" 
+d:DesignHeight="740" d:DesignWidth="920"
+ Background="#303841" ShowsNavigationUI="False" Title="HomePage"  >
+    <Grid>
+        <Grid.ColumnDefinitions>
+
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <!--<StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10">
+            <Button Content="Button" FontSize="20" Style="{StaticResource ButtonStyle}"/>
+            <Button Height="80" Width="80" Style="{DynamicResource ButtonStyle}">
+
+            </Button>
+        </StackPanel>-->
+
+        <Border Width="280" Height="170" Margin="2,7,4,4" Padding="3" Background="#464451" Grid.Row="0" Grid.Column="0"  HorizontalAlignment="Center" CornerRadius="7"  Opacity="0.40">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="14" Color="Black" ShadowDepth="13"></DropShadowEffect>
+            </Border.Effect>
+
+        </Border>
+        <Border Width="270" Height="160" Margin="2,7,4,4" Padding="3" Background="#464451" Grid.Row="0" Grid.Column="0"  HorizontalAlignment="Center" CornerRadius="7"  Opacity="0.70">
+            <Rectangle Width="100" Height="100"  Canvas.Left="200" Canvas.Top="100" Name="Rec1" Grid.Column="0" Grid.Row="1">
+                <Rectangle.Fill>
+
+                    <ImageBrush ImageSource="../Image/shist.png"/>
+
+                </Rectangle.Fill>
+                <Rectangle.RenderTransform>
+
+                    <RotateTransform Angle="0" CenterX="50" CenterY="50"  x:Name="transform1"/>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            
+            
+
+        </Border>
+        <Border Width="260" Height="150" Margin="2,7,4,4" Padding="3" Background="#464451" Grid.Row="0" Grid.Column="0"  HorizontalAlignment="Center" CornerRadius="7" Opacity="0.90" >
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Text="599" FontFamily="Century Gothic" Foreground="White" FontSize="50" VerticalAlignment="Center" x:Name="CountDitalsOnStock"/>
+                <StackPanel Orientation="Vertical" Margin="10,0" VerticalAlignment="Center">
+                    <TextBlock Text="деталей" FontFamily="Century Gothic" Foreground="White" FontSize="20"/>
+                    <TextBlock Text="на складе" FontFamily="Century Gothic" Foreground="White" FontSize="20"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+
+        <Border Width="280" Height="170" Margin="2,7,4,4" Padding="3" Background="#464451" Grid.Row="0" Grid.Column="1"  HorizontalAlignment="Center" CornerRadius="7"  Opacity="0.40">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="14" Color="Black" ShadowDepth="12"></DropShadowEffect>
+            </Border.Effect>
+
+        </Border>
+        <Border Width="270" Height="160" Margin="2,7,4,4" Padding="3" Background="#464451" Grid.Row="0" Grid.Column="1"  HorizontalAlignment="Center" CornerRadius="7"  Opacity="0.70">
+            <Rectangle Width="100" Height="100"  Canvas.Left="200" Canvas.Top="100" Name="Rec2" Grid.Column="0" Grid.Row="1">
+                <Rectangle.Fill>
+
+                    <ImageBrush ImageSource="../Image/plastik.png"/>
+
+                </Rectangle.Fill>
+                <Rectangle.RenderTransform>
+
+                    <RotateTransform Angle="0" CenterX="50" CenterY="50"  x:Name="transform2"/>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+
+        </Border>
+        <Border Width="260" Height="150" Margin="2,7,4,4" Padding="3" Background="#464451" Grid.Row="0" Grid.Column="1"  HorizontalAlignment="Center" CornerRadius="7" Opacity="0.90" >
+            
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Text="12" FontFamily="Century Gothic" Foreground="White" FontSize="50" VerticalAlignment="Center" x:Name="CountPlastOnStock"/>
+                <StackPanel Orientation="Vertical" Margin="10,0" VerticalAlignment="Center">
+                    <TextBlock Text="видов платика" FontFamily="Century Gothic" Foreground="White" FontSize="20"/>
+                    <TextBlock Text="на складе" FontFamily="Century Gothic" Foreground="White" FontSize="20"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+
+
+
+
+        <Border Width="280" Height="170" Margin="2,7,4,4" Padding="3" Background="#464451" Grid.Row="0" Grid.Column="2"  HorizontalAlignment="Center" CornerRadius="7"  Opacity="0.40">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="14" Color="Black" ShadowDepth="12"></DropShadowEffect>
+            </Border.Effect>
+            
+        </Border>
+        <Border Width="270" Height="160" Margin="2,7,4,4" Padding="3" Background="#464451" Grid.Row="0" Grid.Column="2"  HorizontalAlignment="Center" CornerRadius="7"  Opacity="0.70">
+            <Image Source="../Image/postavki.png" Height="100"/>
+            
+        </Border>
+        <Border Width="260" Height="150" Margin="2,7,4,4" Padding="3" Background="#464451" Grid.Row="0" Grid.Column="2"  HorizontalAlignment="Center" CornerRadius="7" Opacity="0.90" >
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock  FontFamily="Century Gothic" Foreground="White" FontSize="50" VerticalAlignment="Center" x:Name="AllDeliverCount"/>
+                <StackPanel Orientation="Vertical" Margin="10,0" VerticalAlignment="Center">
+                    <TextBlock Text="поставок" FontFamily="Century Gothic" Foreground="White" FontSize="20"/>
+                    <TextBlock Text="запланированно" FontFamily="Century Gothic" Foreground="White" FontSize="20"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+        <Line HorizontalAlignment="Center" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1"  StrokeThickness="1" X1="0" X2="900" Y1="10" Y2="10" Stroke="White"/>
+
+        <Border Width="360" Height="340" Margin="10,3,4,4" Padding="3" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="2" Background="#464451"  HorizontalAlignment="Left" CornerRadius="7">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="14" Color="Black" ShadowDepth="0"></DropShadowEffect>
+            </Border.Effect>
+            <Border Width="360" Height="330" VerticalAlignment="Top"  CornerRadius="7">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="../Image/notesIco.png" Height="30"/>
+                        <TextBlock Text="Заметки" FontSize="23" Margin="10,0,0,0" Foreground="White" FontFamily="Century Gothic"/>
+                    </StackPanel>
+
+                    <ListView x:Name="NotessView" Height="250" Background="Transparent" Foreground="White" Margin="0,0,0,8">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" Width="310">
+                                    <TextBlock Text="{Binding Descriptions}" TextDecorations="{Binding DecorateNotes}" Width="290" TextWrapping="Wrap" FontSize="20"/>
+                                    <CheckBox x:Name="DoneNotes" Checked="DoneNotes_Checked" Unchecked="DoneNotes_Unchecked" Background="White" IsChecked="{Binding Status}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <Button x:Name="AddNotes" Content="Добавить заметку" Click="AddNotes_Click" Width="200" Height="32" Background="#202225" BorderThickness="0" MouseEnter="AddNotes_MouseEnter" MouseLeave="AddNotes_MouseLeave" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </StackPanel>
+            </Border>
+        </Border>
+
+        <!--<ToggleButton 
+        Content="ON LINE MODE" 
+        Style="{StaticResource ToggleButtonStyle1}"/>-->
+
+        <Border Width="460" Height="340" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="2" Margin="90,3,4,4" Padding="3" Background="#464451"  HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="7">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="14" Color="Black" ShadowDepth="0"></DropShadowEffect>
+            </Border.Effect>
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="../Image/postavki.png" Height="30"/>
+                    <Label Content=" "/>
+                    <TextBlock Text="Ближайшие поставки: " Foreground="White" FontSize="23" FontFamily="Century Gothic"/>
+                </StackPanel>
+                <ListView x:Name="DeliversView" Height="280" Width="440" Background="Transparent" Foreground="White" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" MouseEnter="StackPanel_MouseEnter" Height="40" Width="190" MouseLeave="StackPanel_MouseLeave">
+                                <StackPanel Orientation="Vertical" Height="auto" Width="230" >
+                                    <TextBlock Text="{Binding СustomerТame}"  TextWrapping="Wrap" FontSize="20" TextDecorations="Underline"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Дата отгрузки: "/>
+                                        <TextBlock Text="{Binding DateEdit}"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Процент готовности: "  Foreground="{Binding ReadyColor}"/>
+                                        <TextBlock x:Name="NumbreReadyProcent" Text="{Binding Status}" Foreground="{Binding ReadyColor}"/>
+                                        <TextBlock Text="%"  Foreground="{Binding ReadyColor}"/>
+                                    </StackPanel>
+
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                    <Label Content=" "/>
+                                    <Label Content=" "/>
+                                    <Label Content=" "/>
+                                    <Button x:Name="LockInfoNatif" Click="LockInfoNatif_Click" Height="40" Width="120" Content="Подробнее" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#202225" Background="White"  />
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
+        </Border>
+        <Frame x:Name="MyFrame" Grid.ColumnSpan="3" Grid.RowSpan="3"/>
+        
+    </Grid>
+</Page>
